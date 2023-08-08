@@ -2,14 +2,14 @@ import { Router } from 'express';
 
 import signupRoute from './auth/signup';
 import signinRoute from './auth/signin';
-import protectedRoute from '../middlewares/auth.middleware';
-import ProtectedRouteRequest from '../types/ProtectedRouteRequest.type';
+import refreshRoute from './auth/refresh';
 
 const router = Router();
 
+// Auth
 router.use(signupRoute);
 router.use(signinRoute);
-
-router.get("/hola", protectedRoute, (req: ProtectedRouteRequest, res) => res.send("hola "))
+router.use(refreshRoute);
+// End Auth
 
 export default router;
