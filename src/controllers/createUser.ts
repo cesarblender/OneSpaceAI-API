@@ -9,6 +9,12 @@ import IUser from '../types/IUser.types';
 
 async function createUser(user: SignUpBody): Promise<Document & IUser> {
   verifyEmail(user.email);
+
+  const usersWithSameEmail = await UserModel.find({ email: user.email });
+
+  if (usersWithSameEmail.length > 0)
+    throw new Error('An user is already registered with thte email provided');
+
   verifyPassword(user.password);
 
   user.password = await hashText(user.password);

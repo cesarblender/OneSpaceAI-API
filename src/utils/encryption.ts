@@ -8,4 +8,10 @@ async function hashText(text: string): Promise<string> {
   return hash;
 }
 
-export { hashText };
+async function compareHash(text: string, hash: string): Promise<boolean> {
+  const areEqual = await bcrypt.compare(text, hash);
+
+  return areEqual;
+}
+
+export { hashText, compareHash };
