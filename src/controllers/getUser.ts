@@ -3,7 +3,7 @@ import { Document } from 'mongoose';
 import { SignUpBody } from '../api/auth/signup/types';
 import UserModel from '../database/models/user.model';
 import { compareHash } from '../utils/encryption';
-import IUser from '../types/IUser.types';
+import IUser from '../database/types/IUser.types';
 
 async function getUser({
   email,

@@ -5,7 +5,7 @@ import createUser from '../../../controllers/createUser';
 import { ResponseData, ResponseError } from '../../../utils/responseStandart';
 import { createAccessAndRefreshToken } from '../../../utils/jwt';
 import { Document } from 'mongoose';
-import IUser from '../../../types/IUser.types';
+import IUser from '../../../database/types/IUser.types';
 
 const signupRoute = Router();
 
