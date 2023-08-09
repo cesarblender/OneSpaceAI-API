@@ -1,7 +1,8 @@
 import { HfInference } from '@huggingface/inference';
+import { HuggingFaceStream } from 'ai';
+
 import config from '../core/config';
 import textGenerationStreamParameters from '../types/textGenerationStreamParameters';
-import { HuggingFaceStream } from 'ai';
 
 const Hf = new HfInference(config.huggingfaceApiKey);
 
@@ -30,3 +31,5 @@ async function generateText(
     throw error;
   }
 }
+
+export { generateText };
