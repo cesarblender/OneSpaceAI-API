@@ -20,8 +20,7 @@ type EncryptionResult = {
   iv: string;
 };
 
-function encrypt(message: string, key: string): EncryptionResult {
-  const iv = crypto.randomBytes(16);
+function encrypt(message: string, key: string, iv: Buffer = crypto.randomBytes(16)): EncryptionResult {
   const cipher = crypto.createCipheriv(
     'aes-256-cbc',
     Buffer.from(key, 'hex'),

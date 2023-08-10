@@ -1,6 +1,11 @@
 import crypto from 'crypto';
 
 const config = {
+  chat: {
+    free: {
+      maxAllowedChats: 1
+    }
+  },
   port: process.env.PORT || 3000,
   huggingfaceApiKey: process.env.HF_API_KEY,
   dbURI: process.env.DB_URI,
@@ -8,6 +13,7 @@ const config = {
   jwt: {
     accessSecret: process.env.JWT_ACCESS_SECRET || 'secret',
     refreshSecret: process.env.JWT_REFRESH_SECRET || 'refresh_secret',
+    chatSecret: process.env.JWT_CHAT_TOKEN_SECRET || 'chat_secret',
     accessTokenDuration: process.env.JWT_ACCESS_TOKEN_DURATION || '2m',
     refreshTokenDuration: process.env.JWT_REFRESH_TOKEN_DURATION || '10m',
   },
