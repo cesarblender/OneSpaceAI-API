@@ -11,6 +11,7 @@ import config from '../core/config';
  */
 async function createChat(
   userID: Types.ObjectId,
+  title: string,
 ): Promise<{ iv: string; chatID: Types.ObjectId }> {
   const maxAllowedChats = config.chat.free.maxAllowedChats;
 
@@ -25,6 +26,7 @@ async function createChat(
   const newChat = new ChatModel({
     messages: encryptedMessage,
     owner: userID,
+    title,
   });
 
   await newChat.save();
